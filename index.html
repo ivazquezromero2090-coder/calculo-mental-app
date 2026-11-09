@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrenador de Cálculo Mental Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🧠 Cálculo Mental Pro</h1>
+            <p>Entrena tu agilidad matemática sin límites</p>
+        </header>
+
+        <!-- Selector de Nivel Inicial -->
+        <section id="selectorSection" class="selector-section">
+            <label for="categorySelect"><strong>Selecciona el Nivel Educativo / Examen:</strong></label>
+            <select id="categorySelect">
+                <option value="infantil_1">👶 Infantil 1 (Solo Sumas 0-20)</option>
+                <option value="infantil_2">🧒 Infantil 2 (Sumas y Restas 0-20)</option>
+                <option value="primaria">Primaria (Sumas, Restas y Multiplicaciones)</option>
+                <option value="secundaria_1">Secundaria Niv. 1 (Combinadas básicas y %)</option>
+                <option value="secundaria_2">Secundaria Niv. 2 (Raíces cuadradas y Combinadas avanzadas)</option>
+                <option value="bachillerato_1">Bachillerato Niv. 1 (Raíces, Potencias y Negativos)</option>
+                <option value="bachillerato_2">Bachillerato Niv. 2 (Avanzado: Logaritmos y Radicales)</option>
+                <option value="examen_tema2">📝 Examen Tema 2 (3º ESO - 60s)</option>
+            </select>
+            <button id="startBtn" class="btn-primary">¡Comenzar a Entrenar!</button>
+        </section>
+
+        <!-- Área de Juego -->
+        <section id="gameArea" class="game-area hidden">
+            <div class="game-top-bar">
+                <div class="level-indicator">
+                    Nivel: <span id="currentLevelName" class="badge">Infantil 1</span>
+                </div>
+                <button id="changeLevelBtn" class="btn-warning">Cambiar Nivel</button>
+            </div>
+
+            <!-- Barra de Temporizador (Sólo visible en Examen) -->
+            <div id="timerContainer" class="timer-container hidden">
+                ⏳ Tiempo Examen: <span id="timeLeft">60</span>s
+            </div>
+
+            <div class="score-board">
+                <span>Puntuación: <strong id="score">0</strong></span>
+                <span>Racha: <strong id="streak">0 🔥</strong></span>
+            </div>
+
+            <div class="card-operation">
+                <h2 id="operationText">5 + 3 = ?</h2>
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="userAnswer" placeholder="Tu respuesta" autocomplete="off">
+                <button id="submitAnswerBtn" class="btn-success">Comprobar</button>
+            </div>
+
+            <p id="feedbackMessage" class="feedback"></p>
+        </section>
+    </div>
+
+    <!-- Modal para Cambiar de Nivel en Vivo -->
+    <div id="levelModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Cambiar de Nivel</h3>
+            <p>¿Qué deseas entrenar ahora?</p>
+            <select id="modalCategorySelect">
+                <option value="infantil_1">👶 Infantil 1 (Solo Sumas 0-20)</option>
+                <option value="infantil_2">🧒 Infantil 2 (Sumas y Restas 0-20)</option>
+                <option value="primaria">Primaria (Sumas, Restas y Multiplicaciones)</option>
+                <option value="secundaria_1">Secundaria Niv. 1 (Combinadas básicas y %)</option>
+                <option value="secundaria_2">Secundaria Niv. 2 (Raíces cuadradas y Combinadas avanzadas)</option>
+                <option value="bachillerato_1">Bachillerato Niv. 1 (Raíces, Potencias y Negativos)</option>
+                <option value="bachillerato_2">Bachillerato Niv. 2 (Avanzado: Logaritmos y Radicales)</option>
+                <option value="examen_tema2">📝 Examen Tema 2 (3º ESO - 60s)</option>
+            </select>
+            <div class="modal-buttons">
+                <button id="confirmChangeBtn" class="btn-primary">Aplicar Cambio</button>
+                <button id="cancelChangeBtn" class="btn-secondary">Continuar Aquí</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
